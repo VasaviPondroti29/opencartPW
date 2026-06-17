@@ -1,0 +1,29 @@
+[
+    {
+    "testName":"Valid login",
+    "email":"vasavinaradasu@gmail.com",
+    "password":"test@123",
+    "expected":"success"
+    },
+
+    {
+    "testName":"Invalid email login",
+    "email":"vasavi@xyz.com",
+    "password":"test@123",
+    "expected":"failure"
+    },
+
+    {
+    "testName":"Invalid password login",
+    "email":"vasavinaradasu@gmail.com",
+    "password":"test123",
+    "expected":"failure"
+    },
+
+    {
+    "testName":"Invalid login with empty credentials",
+    "email":"",
+    "password":"",
+    "expected":"failure"
+    }
+]

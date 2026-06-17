@@ -1,0 +1,5 @@
+product added to wishlist
+exception occured while showing Wishlist page:Error: locator.textContent: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('h2:has-text("My Wish List")')
+

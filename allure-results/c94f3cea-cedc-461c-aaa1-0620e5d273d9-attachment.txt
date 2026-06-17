@@ -1,0 +1,8 @@
+Registration is completed!
+ Logout is completed!
+ Login is completed!
+Product added to cart!
+Unable to retrieve total price: Error: locator.textContent: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('tbody tr td:nth-child(6)')
+
