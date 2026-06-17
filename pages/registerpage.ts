@@ -10,8 +10,8 @@ export class registerpage {
     private readonly confirmPassword: Locator;
     private readonly privacypolicy: Locator;
     private readonly continuebtn: Locator;
-    private readonly confrmmsg:Locator;
-    private readonly btncontinue:Locator;
+    private readonly confrmmsg: Locator;
+    private readonly btncontinue: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -23,77 +23,72 @@ export class registerpage {
         this.confirmPassword = this.page.locator('#input-confirm')
         this.privacypolicy = this.page.getByRole('checkbox');
         this.continuebtn = this.page.locator('input[type="submit"]');
-        this.confrmmsg=this.page.getByRole('heading', { name: 'Your Account Has Been Created!' });
-        this.btncontinue=this.page.getByRole('link', { name: 'Continue' });
+        this.confrmmsg = this.page.getByRole('heading', { name: 'Your Account Has Been Created!' });
+        this.btncontinue = this.page.getByRole('link', { name: 'Continue' });
     }
 
-//Action Methods
+    //Action Methods
 
-//1.enter FirstName
-async setFirstName(FirstName:string){
-    await this.FirstName.fill(FirstName);
-}
-//2.enter Last Name
-async setLastName(LastName:string){
-    await this.LastName.fill(LastName);
-}
-//3.enter email address
-async setemail(emailaddress:string)
-{
-await this.Email.fill(emailaddress);
-} 
+    //1.enter FirstName
+    async setFirstName(FirstName: string) {
+        await this.FirstName.fill(FirstName);
+    }
+    //2.enter Last Name
+    async setLastName(LastName: string) {
+        await this.LastName.fill(LastName);
+    }
+    //3.enter email address
+    async setemail(emailaddress: string) {
+        await this.Email.fill(emailaddress);
+    }
 
-//4.enter Telephone
-async setTelephone(Telephone:string)
-{
-await this.Telephone.fill(Telephone);
-} 
+    //4.enter Telephone
+    async setTelephone(Telephone: string) {
+        await this.Telephone.fill(Telephone);
+    }
 
-//5.enter password
-async setpassword(password:string)
-{
-await this.Password.fill(password);
-} 
+    //5.enter password
+    async setpassword(password: string) {
+        await this.Password.fill(password);
+    }
 
-//6.enter confirm password
-async setconfirmpassword(password:string)
-{
-await this.confirmPassword.fill(password);
-} 
+    //6.enter confirm password
+    async setconfirmpassword(password: string) {
+        await this.confirmPassword.fill(password);
+    }
 
-//7.click the privacy checkbox
-async clickprivacycheckbox(){
-    await this.privacypolicy.check();
-}
+    //7.click the privacy checkbox
+    async clickprivacycheckbox() {
+        await this.privacypolicy.check();
+    }
 
-//8.click continue button
+    //8.click continue button
 
-async clickonContinueButton(){
-    await this.continuebtn.click();
-}
+    async clickonContinueButton() {
+        await this.continuebtn.click();
+    }
 
-//9. click continue after registration
-async clickContinueButton(){
-    await this.btncontinue.click();
-}
+    //9. click continue after registration
+    async clickContinueButton() {
+        await this.btncontinue.click();
+    }
 
-//perform complete registration
-async performRegistration(FirstName:string,LastName:string,emailaddress:string,Telephone:string,password:string)
-{
-await this.setFirstName(FirstName);
-await this.setLastName(LastName);
-await this.setemail(emailaddress);
-await this.setTelephone(Telephone);
-await this.setpassword(password);
-await this.setconfirmpassword(password);
-await this.clickprivacycheckbox();
-await this.clickonContinueButton();
-await this.clickContinueButton();
-}
+    //perform complete registration
+    async performRegistration(FirstName: string, LastName: string, emailaddress: string, Telephone: string, password: string) {
+        await this.setFirstName(FirstName);
+        await this.setLastName(LastName);
+        await this.setemail(emailaddress);
+        await this.setTelephone(Telephone);
+        await this.setpassword(password);
+        await this.setconfirmpassword(password);
+        await this.clickprivacycheckbox();
+        await this.clickonContinueButton();
+        await this.clickContinueButton();
+    }
 
-//10.verify confirmation message
-async confirmationmsg(){
-    return await this.confrmmsg.textContent()??'';
-}
+    //10.verify confirmation message
+    async confirmationmsg() {
+        return await this.confrmmsg.textContent() ?? '';
+    }
 
 }

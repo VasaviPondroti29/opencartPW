@@ -2,7 +2,7 @@ import { Page, expect, Locator } from '@playwright/test';
 
 export class checkoutpage {
     private readonly page: Page;
-    
+
     // Locators
     private readonly radioGuest: Locator;
     private readonly btnContinue: Locator;
@@ -26,7 +26,7 @@ export class checkoutpage {
 
     constructor(page: Page) {
         this.page = page;
-        
+
         // Initialize locators with CSS selectors
         this.radioGuest = page.locator('input[value="guest"]');
         this.btnContinue = page.locator('#button-account');
@@ -58,25 +58,25 @@ export class checkoutpage {
             return false;
         }
     }
-    
+
     // Choose checkout option
-    async chooseCheckoutOption(checkOutOption: string){
+    async chooseCheckoutOption(checkOutOption: string) {
         if (checkOutOption === "Guest Checkout") {
             await this.radioGuest.click();
         }
     }
 
     // Click on continue button
-    async clickOnContinue(){
+    async clickOnContinue() {
         await this.btnContinue.click();
     }
 
     // Form field methods
-    async setFirstName(firstName: string){
+    async setFirstName(firstName: string) {
         await this.txtFirstName.fill(firstName);
     }
 
-    async setLastName(lastName: string){
+    async setLastName(lastName: string) {
         await this.txtLastName.fill(lastName);
     }
 
@@ -84,23 +84,23 @@ export class checkoutpage {
         await this.txtAddress1.fill(address1);
     }
 
-    async setAddress2(address2: string){
+    async setAddress2(address2: string) {
         await this.txtAddress2.fill(address2);
     }
 
-    async setCity(city: string){
+    async setCity(city: string) {
         await this.txtCity.fill(city);
     }
 
-    async setPin(pin: string){
+    async setPin(pin: string) {
         await this.txtPin.fill(pin);
     }
 
-    async setCountry(country: string){
+    async setCountry(country: string) {
         await this.drpCountry.selectOption({ label: country });
     }
 
-    async setState(state: string){
+    async setState(state: string) {
         await this.drpState.selectOption({ label: state });
     }
 
@@ -146,7 +146,7 @@ export class checkoutpage {
             if (this.page.on('dialog', dialog => dialog.accept())) {
                 await this.page.waitForEvent('dialog');
             }
-            
+
             await expect(this.lblOrderConMsg).toHaveText("Your order has been placed!");
             return true;
         } catch (error) {
