@@ -5,14 +5,14 @@ export class loginpage {
     private readonly Email: Locator;
     private readonly Password: Locator;
     private readonly clickloginbtn: Locator;
-    private readonly errormsg:Locator;
+    private readonly errormsg: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.Email = this.page.getByLabel('E-Mail');
         this.Password = this.page.locator('#input-password');
         this.clickloginbtn = this.page.locator("input[type='submit']");
-        this.errormsg=this.page.locator(".alert.alert-danger.alert-dismissible");
+        this.errormsg = this.page.locator(".alert.alert-danger.alert-dismissible");
     }
 
     //action methods
@@ -39,11 +39,11 @@ export class loginpage {
         await this.enterpassword(password);
         await this.clickloginButton();
     }
-//verify myaccount page if login is successful
-//verify error message if login is unsuccessful
-async Errormsg(){
-   return(this.errormsg.textContent());
-}
+    //verify myaccount page if login is successful
+    //verify error message if login is unsuccessful
+    async Errormsg() {
+        return (this.errormsg.textContent());
+    }
 
 
 }
